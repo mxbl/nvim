@@ -1,0 +1,104 @@
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+lsp.ensure_installed({
+    'sumneko_lua',
+    'rust_analyzer',
+    'eslint',
+    'tsserver',
+})
+
+-- Fix Undefined global 'vim'
+lsp.configure('sumneko_lua', {
+    setttings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+})
+
+lsp.setup_nvim_cmp({
+    completion = {
+        completeopt = 'menu,menuone,noselect,noinsert',
+    },
+    mappings = cmp_mappings,
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "cmp_tabnine", keyword_length = 3, max_item_count = 5 },
+    },
+    window = {
+        documentation = {
+            border = nil
+        },
+    },
+    formatting = {
+        format = function(entry, item)
+            local short_name = {
+                nvim_lsp = 'LSP',
+                nvim_lua = 'nvim',
+                cmp_tabnine = 'TN',
+            }
+            local menu_name = short_name[entry.source.name] or entry.source.name
+            item.menu = string.format('[%s]', menu_name)
+            return item
+        end,
+    },
+})
+
+lsp.on_attach(function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
+
+    if client.name == "eslint" then
+        vim.cmd.LspStop('eslint')
+        return
+    end
+
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+end)
+
+lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true,
+})
+
+local tabnine = require'cmp_tabnine.config'
+tabnine.setup({
+    max_lines = 1000,
+    max_num_results = 20,
+    sort = true,
+    run_on_every_keystroke = true,
+    snippet_placeholder = "..",
+})
+
+require("fidget").setup {
+    text = {
+        spinner = "moon",
+    },
+    align = {
+        bottom = true,
+    },
+    window = {
+        relative = "editor",
+    },
+}
