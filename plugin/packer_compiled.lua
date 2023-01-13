@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/mx/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  ["express_line.nvim"] = {
+    loaded = true,
+    path = "/home/mx/.local/share/nvim/site/pack/packer/start/express_line.nvim",
+    url = "https://github.com/tjdevries/express_line.nvim"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "/home/mx/.local/share/nvim/site/pack/packer/start/fidget.nvim",
@@ -148,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mx/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["lsp-status.nvim"] = {
+    loaded = true,
+    path = "/home/mx/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
+    url = "https://github.com/wbthomason/lsp-status.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -208,6 +218,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mx/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/home/mx/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-hop.nvim"] = {
+    loaded = true,
+    path = "/home/mx/.local/share/nvim/site/pack/packer/start/telescope-hop.nvim",
+    url = "https://github.com/nvim-telescope/telescope-hop.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

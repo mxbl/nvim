@@ -1,11 +1,11 @@
-local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+local color, c, Group, _, _ = require('colorbuddy').setup()
 
 vim.opt.termguicolors = true
 
-Color.new('darkgray0', '#3a3a3a')
-Color.new('darkgray1', '#404040')
-Color.new('darkgray2', '#505050')
-Color.new('lightblue', '#5eacd3')
+color.new('darkgray0', '#3a3a3a')
+color.new('darkgray1', '#404040')
+color.new('darkgray2', '#505050')
+color.new('lightblue', '#5eacd3')
 
 require('colorizer').setup()
 
@@ -13,30 +13,23 @@ require('colorizer').setup()
 --     disable_background = true
 -- })
 
-function MxGruvbuddySetup(scheme)
-    scheme = scheme or 'gruvbuddy'
+require('colorbuddy').colorscheme('gruvbuddy')
 
-    require('colorbuddy').colorscheme(scheme)
+Group.new('Whitespace', c.darkgray0, nil, nil)
+Group.new('NonText', c.darkgray0, nil, nil)
 
-    Group.new('Whitespace', colors.darkgray0, nil, nil)
-    Group.new('NonText', colors.darkgray0, nil, nil)
-
-    if scheme == 'gruvbuddy' then
-        Group.new('SignColumn', nil, nil, nil)
-        Group.new('Comment', colors.darkgray2, nil, nil)
-        Group.new('Normal', nil, nil, nil)
-        Group.new('LineNr', colors.darkgray2, nil, nil)
-    end
-end
-
-MxGruvbuddySetup()
-
+Group.new('SignColumn', nil, nil, nil)
+Group.new('Comment', c.darkgray2, nil, nil)
+Group.new('Normal', nil, nil, nil)
+Group.new('LineNr', c.darkgray2, nil, nil)
 
 -- Telescope
-Group.new('TelescopeNormal', nil, nil, nil)
-Group.new('TelescopeBorder', colors.darkgray0, nil, nil)
-Group.new('TelescopeTitle', colors.darkgray0, nil, nil)
+Group.new('TelescopeNormal', c.superwhite, nil, nil)
+Group.new('TelescopeBorder', c.darkgray0, nil, nil)
+Group.new('TelescopeTitle', c.lightblue, nil, nil)
 
-Group.new('Identifier', nil, nil, nil)
---Group.new('helpNormal', nil, colors.darkgray2, nil)
---Group.new('helpNormal', nil, colors.darkgray2, nil)
+Group.new('@variable', c.superwhite, nil)
+--Group.new('WinSeparator', nil, nil)
+
+--Group.new('TabLine', nil, c.darkgray2, nil)
+Group.new('TabLineFill', nil, nil, nil)

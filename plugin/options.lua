@@ -59,7 +59,7 @@ opt.colorcolumn = ""
 opt.belloff = "all"
 opt.clipboard = "unnamedplus"
 opt.inccommand = "split"
-opt.laststatus = 2
+opt.laststatus = 3
 opt.mouse = "a"
 opt.autowriteall = true
 

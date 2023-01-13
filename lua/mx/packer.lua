@@ -1,11 +1,17 @@
 vim.cmd [[packadd packer.nvim]]
 
+vim.keymap.set('n', ',ps', function()
+    vim.cmd.PackerSync()
+end)
+
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'nvim-telescope/telescope-hop.nvim'
     use {
         'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'}
     }
@@ -16,6 +22,9 @@ return require('packer').startup(function(use)
     use 'tjdevries/colorbuddy.nvim'
     use 'tjdevries/gruvbuddy.nvim'
     use 'norcalli/nvim-colorizer.lua'
+
+    -- Statusline
+    use 'tjdevries/express_line.nvim'
     -- use {
     --     'rose-pine/nvim', as = 'rose-pine',
     --     config = function()
@@ -51,6 +60,7 @@ return require('packer').startup(function(use)
         }
     }
     use 'j-hui/fidget.nvim'
+    use 'wbthomason/lsp-status.nvim'
 
     -- Tabnine
     use {
