@@ -8,7 +8,7 @@ telescope.setup {
         selection_caret = "❯ ",
         mappings = {
             i = {
-                ["<C-f>"] = R('telescope').extensions.hop.hop,
+                ["<Space>"] = R('telescope').extensions.hop.hop,
                 ["<C-h>"] = actions.select_horizontal,
                 ["<C-v>"] = actions.select_vertical,
                 ["<C-t>"] = actions.select_tab,
@@ -53,6 +53,7 @@ telescope.load_extension 'fzf'
 telescope.load_extension 'hop'
 
 local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>dd', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', ',h', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>ps', function()

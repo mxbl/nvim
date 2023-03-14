@@ -1,8 +1,8 @@
 nnoremap <expr> <CR> { -> v:hlsearch ? ":nohl\<CR>" : "\<CR>" }()
 
 " Open line below or above the current line
-inoremap <S-CR> <C-o>o
-inoremap <C-CR> <C-o>O
+inoremap <C-CR> <C-o>o
+inoremap <S-CR> <C-o>O
 
 " Set virtual or horizontal split
 nnoremap ,h <C-w>K
@@ -36,3 +36,6 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
+
+nnoremap <C-n> :cnext<cr>
+nnoremap <C-p> :cprev<cr>
