@@ -2,6 +2,7 @@ local color, c, Group, _, _ = require('colorbuddy').setup()
 
 vim.opt.termguicolors = true
 
+color.new('darkgray', '#202020')
 color.new('darkgray0', '#3a3a3a')
 color.new('darkgray1', '#404040')
 color.new('darkgray2', '#505050')
@@ -18,6 +19,7 @@ require('colorbuddy').colorscheme('gruvbuddy')
 Group.new('Whitespace', c.darkgray0, nil, nil)
 Group.new('NonText', c.darkgray0, nil, nil)
 
+Group.new('CursorLine', nil, c.darkgray)
 Group.new('SignColumn', nil, c.black, nil)
 Group.new('Comment', c.darkgray2, nil, nil)
 Group.new('Normal', nil, nil, nil)

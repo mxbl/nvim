@@ -13,7 +13,7 @@ local sections   = require "el.sections"
 local subscribe  = require "el.subscribe"
 local lsp_statusline = require "el.plugins.lsp_status"
 
-local lsp_status = require "lsp-status"
+--local lsp_status = require "lsp-status"
 
 local git_icon = subscribe.buf_autocmd("el_file_icon", "BufRead",
 function(_, bufnr)
@@ -60,7 +60,7 @@ require("el").setup {
 
         local mode = extensions.gen_mode { format_string = " %s " }
 
-        return {
+         return {
             { mode },
             { git_branch },
             { " " },
@@ -84,7 +84,7 @@ require("el").setup {
                     "]",
                 },
             },
-            { lsp_status_info },
+            --{ lsp_status_info },
             { builtin.filetype },
         }
     end,

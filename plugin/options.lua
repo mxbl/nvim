@@ -10,7 +10,7 @@ opt.guicursor = ""
 opt.nu = true
 opt.relativenumber = true
 opt.cursorline = true
-opt.cursorlineopt = "number"
+opt.cursorlineopt = "screenline,number"
 
 opt.errorbells = false
 opt.showcmd = false
@@ -50,8 +50,6 @@ opt.cmdheight = 1
 -- delays and poor user experience
 opt.updatetime = 50
 
--- Don't pass messages to |ins-completion-menu|
-opt.shortmess:append("c")
 
 opt.colorcolumn = ""
 
