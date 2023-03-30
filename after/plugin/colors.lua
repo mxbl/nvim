@@ -1,4 +1,4 @@
-local color, c, Group, g, _ = require('colorbuddy').setup()
+local color, c, Group, g, s = require('colorbuddy').setup()
 
 vim.opt.termguicolors = true
 
@@ -21,7 +21,7 @@ Group.new('NonText', c.darkgray0, nil, nil)
 
 Group.new('CursorLine', nil, c.darkgray)
 Group.new('SignColumn', nil, c.black, nil)
-Group.new('Comment', c.darkgray2, nil, nil)
+--Group.new('Comment', c.darkgray2, nil, nil)
 Group.new('Normal', nil, nil, nil)
 Group.new('LineNr', c.darkgray2, nil, nil)
 
@@ -40,3 +40,10 @@ Group.new('VertSplit', c.red, nil, nil)
 Group.new('TabLineFill', nil, nil, nil)
 
 vim.cmd [[highlight link @function.call.lua LuaFunctionCall]]
+
+Group.new("CmpItemAbbr", c.lightblue:light(), nil, nil)
+Group.new("CmpItemAbbrMatch", g.CmpItemAbbr.fg:dark(), nil, s.underline)
+Group.new("CmpItemAbbrDeprecated", g.Error)
+--Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.underline)
+Group.new("CmpItemKind", g.Special)
+Group.new("CmpItemMenu", g.NonText)

@@ -4,7 +4,7 @@ require 'go'.setup({
     max_line_len = 80,
     lsp_gofumpt = true,
     lsp_inlay_hints = {
-        enable = true,
+        enable = false,
     },
 })
 

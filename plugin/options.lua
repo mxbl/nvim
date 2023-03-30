@@ -92,3 +92,8 @@ vim.cmd([[
 --vim.g.rust_conceal = 0
 vim.o.conceallevel = 2
 vim.o.concealcursor = ""
+
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+-- Don't pass messages to |ins-completion-menu|
+vim.opt.shortmess:append "c"
