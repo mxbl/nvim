@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+--vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- Tmux aware window switching
 vim.keymap.set('n', '<C-l>', function() require'mx.tmux'.navigate("l") end)

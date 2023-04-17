@@ -10,4 +10,9 @@ return {
     'theprimeagen/harpoon',
     'mbbill/undotree',
     'numToStr/Comment.nvim',
+
+    -- lir.nvim
+    'tamago324/lir.nvim',
+    'tamago324/lir-git-status.nvim',
+    'kyazdani42/nvim-web-devicons',
 }
