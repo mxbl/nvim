@@ -39,3 +39,9 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 nnoremap <C-n> :cnext<cr>
 nnoremap <C-p> :cprev<cr>
+
+" Resizing windows
+nnoremap + :res +5<cr>
+nnoremap _ :res -5<cr>
+nnoremap > :vertical resize +5<cr>
+nnoremap < :vertical resize -5<cr>
