@@ -5,8 +5,8 @@ inoremap <C-CR> <C-o>o
 inoremap <S-CR> <C-o>O
 
 " Set virtual or horizontal split
-nnoremap ,h <C-w>K
-nnoremap ,v <C-w>H
+" nnoremap ,h <C-w>K
+" nnoremap ,v <C-w>H
 
 " Moving text
 vnoremap J :m '>+1<CR>gv=gv
