@@ -59,6 +59,10 @@ lsp.configure('gopls', {
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
+    if client.name == "copilot" then
+        return
+    end
+
     if client.name == "gopls" then
         require("inlay-hints").on_attach(client, bufnr)
     end
@@ -83,7 +87,12 @@ if not ok then
     return
 end
 
-lspkind.init()
+lspkind.init {
+    symbol_map = {
+        Copilot = "",
+    },
+}
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 local cmp = require 'cmp'
 lsp.setup_nvim_cmp({
@@ -109,6 +118,7 @@ lsp.setup_nvim_cmp({
         { name = "nvim_lua" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "copilot" },
         { name = "path" },
         { name = "buffer", keyword_length = 5 },
     }),
