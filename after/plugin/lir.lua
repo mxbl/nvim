@@ -51,7 +51,7 @@ lir.setup {
 
     ["q"] = actions.quit,
     ["@"] = actions.cd,
-    ["K"] = actions.mkdir,
+    ["M"] = actions.mkdir,
     ["N"] = actions.newfile,
     ["R"] = actions.rename,
     ["Y"] = actions.yank_path,
@@ -59,7 +59,7 @@ lir.setup {
     ["."] = actions.toggle_show_hidden,
 
     -- mmv
-    ["M"] = (has_mmv and mmv_actions.mmv) or nil,
+    --["M"] = (has_mmv and mmv_actions.mmv) or nil,
   },
 }
 

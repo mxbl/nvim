@@ -61,8 +61,13 @@ require("telescope").setup {
         sign_hl = { "WarningMsg", "Title" },
         line_hl = { "CursorLine", "Normal" },
     },
+    ["ui-select"] = {
+        require("telescope.themes").get_dropdown {
+        },
+    },
 }
 _ = require("telescope").load_extension 'file_browser'
+_ = require("telescope").load_extension 'ui-select'
 _ = require("telescope").load_extension 'fzf'
 _ = require("telescope").load_extension 'hop'
 

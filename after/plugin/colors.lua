@@ -7,7 +7,7 @@ color.new('darkgray0', '#3a3a3a')
 color.new('darkgray1', '#404040')
 color.new('darkgray2', '#505050')
 color.new('lightblue', '#5eacd3')
-
+color.new('limegreen', '#6dfc18')
 
 -- require('rose-pine').setup({
 --     disable_background = true
@@ -30,7 +30,13 @@ Group.new('TelescopeNormal', c.superwhite, nil, nil)
 Group.new('TelescopeBorder', c.darkgray0, nil, nil)
 Group.new('TelescopeTitle', c.lightblue, nil, nil)
 
-Group.new('@variable', c.superwhite, nil)
+-- NOTE: needs to stay golang does not use lsp.type.* why?
+--   lua and rust do
+Group.new('@variable', c.superwhite, nil) 
+Group.new('@parameter', c.superwhite, nil) 
+Group.new('@lsp.type.variable', c.superwhite, nil)
+Group.new('@lsp.type.parameter', c.superwhite, nil)
+
 Group.new('@function.bracket', g.Normal, g.Normal)
 Group.new('@variable.builtin', c.purple:light():light(), g.Normal)
 --Group.new('WinSeparator', nil, nil)
