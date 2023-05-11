@@ -1,6 +1,27 @@
 local M = {}
 
 function M.edit_neovim()
+    local opts
+    opts = {
+        prompt_title = "~ neovim ~",
+        cwd = "~/.config/nvim/",
+        layout_strategy = "flex",
+        sorting_strategy = "ascending",
+        scroll_strategy = "cycle",
+        layout_config = {
+            width = 0.9,
+            height = 0.8,
+            horizontal = {
+                width = { padding = 0.15 },
+            },
+            vertical = {
+                preview_height = 0.75,
+            },
+            prompt_position = "top",
+        },
+    }
+
+    require("telescope.builtin").find_files(opts)
 end
 
 function M.edit_fish()
