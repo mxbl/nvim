@@ -61,9 +61,16 @@ require("telescope").setup {
         sign_hl = { "WarningMsg", "Title" },
         line_hl = { "CursorLine", "Normal" },
     },
-    ["ui-select"] = {
-        require("telescope.themes").get_dropdown {
-        },
+
+    extensions = {
+        ["ui-select"] = {
+            require("telescope.themes").get_cursor {
+                layout_config = {
+                    width = 0.4,
+                    height = 16,
+                }
+            }
+        }
     },
 }
 _ = require("telescope").load_extension 'file_browser'
