@@ -10,6 +10,7 @@ return {
     'theprimeagen/harpoon',
     'mbbill/undotree',
     'numToStr/Comment.nvim',
+    'junegunn/vim-easy-align',
 
     -- lir.nvim
     'tamago324/lir.nvim',
