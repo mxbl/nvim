@@ -57,6 +57,10 @@ require"lspconfig".ocamllsp.setup{
     on_attach = on_attach,
 }
 
+require"lspconfig".pylsp.setup{
+    on_attach = on_attach,
+}
+
 -- lsp.configure('rust_analyzer', {
 --     setttings = {
 --     },

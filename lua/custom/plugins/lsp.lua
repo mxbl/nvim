@@ -18,7 +18,14 @@ return {
     'j-hui/fidget.nvim',
     'folke/neodev.nvim',
     'jose-elias-alvarez/null-ls.nvim',
-    'ray-x/go.nvim',
+
+    {
+        'ray-x/go.nvim',
+        dependencies = {
+            'ray-x/guihua.lua',
+        },
+    },
+
     'nvim-lua/lsp-status.nvim',
 }
 
