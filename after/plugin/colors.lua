@@ -32,8 +32,8 @@ Group.new('TelescopeTitle', c.lightblue, nil, nil)
 
 -- NOTE: needs to stay golang does not use lsp.type.* why?
 --   lua and rust do
-Group.new('@variable', c.superwhite, nil) 
-Group.new('@parameter', c.superwhite, nil) 
+Group.new('@variable', c.superwhite, nil)
+Group.new('@parameter', c.superwhite, nil)
 Group.new('@lsp.type.variable', c.superwhite, nil)
 Group.new('@lsp.type.parameter', c.superwhite, nil)
 
@@ -42,7 +42,7 @@ Group.new('@variable.builtin', c.purple:light():light(), g.Normal)
 --Group.new('WinSeparator', nil, nil)
 
 --Group.new('TabLine', nil, c.darkgray2, nil)
-Group.new('VertSplit', c.red, nil, nil)
+Group.new('VertSplit', nil, nil, nil)
 Group.new('TabLineFill', nil, nil, nil)
 
 vim.cmd [[highlight link @function.call.lua LuaFunctionCall]]
@@ -53,3 +53,5 @@ Group.new("CmpItemAbbrDeprecated", g.Error)
 --Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.underline)
 Group.new("CmpItemKind", g.Special)
 Group.new("CmpItemMenu", g.NonText)
+
+Group.new('LspInlayHints', c.lightblue:dark(), nil, nil)

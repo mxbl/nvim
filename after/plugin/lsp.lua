@@ -8,6 +8,8 @@ if neodev then
     }
 end
 
+local augroup_codelens = vim.api.nvim_create_augroup('custom-lsp-codelens', { clear = true })
+
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.ensure_installed({
