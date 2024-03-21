@@ -20,7 +20,7 @@ Group.new('Whitespace', c.darkgray0, nil, nil)
 Group.new('NonText', c.darkgray0, nil, nil)
 
 Group.new('CursorLine', nil, c.darkgray)
-Group.new('SignColumn', nil, c.black, nil)
+Group.new('SignColumn', nil, nil, nil)
 --Group.new('Comment', c.darkgray2, nil, nil)
 Group.new('Normal', nil, nil, nil)
 Group.new('LineNr', c.darkgray2, nil, nil)

@@ -5,6 +5,12 @@ require 'mx.globals'
 -- will be set to the old leader.
 vim.g.mapleader = " "
 
+vim.cmd([[
+  autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
+  autocmd TermOpen * startinsert
+  autocmd BufWinEnter,WinEnter term://* startinsert
+]])
+
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system {

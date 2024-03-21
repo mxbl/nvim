@@ -27,9 +27,11 @@ nnoremap 'd 'D
 nnoremap 'f 'F
 
 " Terminal mappings
-" Leave terminal mode
-tnoremap <leader><esc> <C-\><C-n>
-tnoremap <Esc><Esc> <C-\><C-n>
+tnoremap <esc> <C-\><C-n>
+tnoremap <C-h> <C-\><C-n><W-w>h
+tnoremap <C-j> <C-\><C-n><W-w>j
+tnoremap <C-k> <C-\><C-n><W-w>k
+tnoremap <C-l> <C-\><C-n><W-w>l
 
 " Move between buffers
 tnoremap <C-h> <C-\><C-n><C-w>h
