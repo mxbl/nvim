@@ -32,6 +32,7 @@ tnoremap <C-h> <C-\><C-n><W-w>h
 tnoremap <C-j> <C-\><C-n><W-w>j
 tnoremap <C-k> <C-\><C-n><W-w>k
 tnoremap <C-l> <C-\><C-n><W-w>l
+tnoremap <C-^> <C-\><C-n><C-^>
 
 " Move between buffers
 tnoremap <C-h> <C-\><C-n><C-w>h
