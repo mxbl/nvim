@@ -7,7 +7,7 @@ require("telescope").setup {
         selection_caret = "❯ ",
         mappings = {
             i = {
-                ["<Space>"] = R('telescope').extensions.hop.hop,
+                -- ["<Space>"] = R('telescope').extensions.hop.hop,
                 ["<C-h>"] = actions.select_horizontal,
                 ["<C-v>"] = actions.select_vertical,
                 ["<C-t>"] = actions.select_tab,
@@ -64,7 +64,7 @@ require("telescope").setup {
 
     extensions = {
         ["ui-select"] = {
-            require("telescope.themes").get_cursor {
+            require("telescope.themes").get_dropdown {
                 layout_config = {
                     width = 0.4,
                     height = 16,
