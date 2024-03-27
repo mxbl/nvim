@@ -6,8 +6,8 @@ require 'mx.globals'
 vim.g.mapleader = " "
 
 vim.cmd([[
-  autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
-  autocmd TermOpen * startinsert
+  autocmd TermOpen term://* setlocal nonumber norelativenumber signcolumn=no
+  autocmd TermOpen term://* startinsert
   autocmd BufWinEnter,WinEnter term://* startinsert
 ]])
 
