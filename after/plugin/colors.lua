@@ -1,19 +1,25 @@
-local color, c, Group, g, s = require('colorbuddy').setup()
+local colorbuddy = require('colorbuddy')
+local Color = colorbuddy.Color
+local Group = colorbuddy.Group
+local c = colorbuddy.colors
+local g = colorbuddy.groups
+local s = colorbuddy.styles
+
 
 vim.opt.termguicolors = true
 
-color.new('darkgray', '#202020')
-color.new('darkgray0', '#3a3a3a')
-color.new('darkgray1', '#404040')
-color.new('darkgray2', '#505050')
-color.new('lightblue', '#5eacd3')
-color.new('limegreen', '#6dfc18')
+Color.new('darkgray', '#202020')
+Color.new('darkgray0', '#3a3a3a')
+Color.new('darkgray1', '#404040')
+Color.new('darkgray2', '#505050')
+Color.new('lightblue', '#5eacd3')
+Color.new('limegreen', '#6dfc18')
 
 -- require('rose-pine').setup({
 --     disable_background = true
 -- })
 
-require('colorbuddy').colorscheme 'gruvbuddy'
+colorbuddy.colorscheme 'gruvbuddy'
 require('colorizer').setup()
 
 Group.new('Whitespace', c.darkgray0, nil, nil)
