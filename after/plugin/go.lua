@@ -1,7 +1,7 @@
 require 'go'.setup({
-    goimport = 'gopls',
+    goimports = 'gopls',
     gofmt = 'gofumpt',
-    max_line_len = 80,
+    -- max_line_len = 80,
     lsp_gofumpt = true,
     lsp_inlay_hints = {
         enable = false,
