@@ -5,7 +5,6 @@ local c = colorbuddy.colors
 local g = colorbuddy.groups
 local s = colorbuddy.styles
 
-
 vim.opt.termguicolors = true
 
 Color.new('darkgray', '#202020')
@@ -19,7 +18,9 @@ Color.new('limegreen', '#6dfc18')
 --     disable_background = true
 -- })
 
-colorbuddy.colorscheme 'gruvbuddy'
+-- colorbuddy.colorscheme 'gruvbuddy'
+vim.cmd.colorscheme 'gruvbuddy'
+
 require('colorizer').setup()
 
 Group.new('Whitespace', c.darkgray0, nil, nil)
@@ -45,13 +46,15 @@ Group.new('@lsp.type.parameter', c.superwhite, nil)
 
 Group.new('@function.bracket', g.Normal, g.Normal)
 Group.new('@variable.builtin', c.purple:light():light(), g.Normal)
---Group.new('WinSeparator', nil, nil)
 
---Group.new('TabLine', nil, c.darkgray2, nil)
-Group.new('VertSplit', nil, nil, nil)
+Group.new('WinSeparator', c.gray:dark():dark(), nil, nil)
 Group.new('TabLineFill', nil, nil, nil)
 
-vim.cmd [[highlight link @function.call.lua LuaFunctionCall]]
+vim.cmd [[
+  hi link @function.call.lua LuaFunctionCall
+  hi link @lsp.type.variable.lua variable
+  hi link @lsp.type.variable.rust variable
+]]
 
 Group.new("CmpItemAbbr", c.lightblue:light(), nil, nil)
 Group.new("CmpItemAbbrMatch", g.CmpItemAbbr.fg:dark(), nil, s.underline)

@@ -22,7 +22,7 @@ signs.setup {
   },
 
   -- Highlights just the number part of the number column
-  numhl = true,
+  numhl = false,
 
   -- Highlights the _whole_ line.
   --    Instead, use gitsigns.toggle_linehl()
