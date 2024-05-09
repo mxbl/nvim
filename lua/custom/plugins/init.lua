@@ -16,4 +16,6 @@ return {
     'tamago324/lir.nvim',
     'tamago324/lir-git-status.nvim',
     'kyazdani42/nvim-web-devicons',
+
+    'pearofducks/ansible-vim'
 }
