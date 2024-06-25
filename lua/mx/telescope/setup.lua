@@ -9,7 +9,7 @@ require("telescope").setup {
             i = {
                 -- ["<Space>"] = R('telescope').extensions.hop.hop,
                 ["<C-h>"] = actions.select_horizontal,
-                ["<C-v>"] = actions.select_vertical,
+                ["<C-s>"] = actions.select_vertical,
                 ["<C-t>"] = actions.select_tab,
                 ["<C-y>"] = action_layout.toggle_preview,
                 ["<PageUp>"] = actions.preview_scrolling_up,
