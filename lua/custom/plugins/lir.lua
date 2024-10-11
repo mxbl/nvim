@@ -36,6 +36,7 @@ return {
             }
           end,
         },
+        hide_cursor = true,
         mappings = {
           ['<cr>'] = require'lir.actions'.edit,
           ['-']    = require'lir.actions'.up,
