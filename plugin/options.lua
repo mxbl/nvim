@@ -15,4 +15,4 @@ o.shada = { "'10", "<0", "s10", "h" }
 
 o.clipboard = "unnamedplus"
 
-o.formatoions:remove "o"
+o.formatoptions:remove "o"
