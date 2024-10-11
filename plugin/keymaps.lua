@@ -1,9 +1,9 @@
 local set = vim.keymap.set
 
-set("n", "<c-j>", "<c-w><c-j>")
-set("n", "<c-k>", "<c-w><c-k>")
-set("n", "<c-l>", "<c-w><c-l>")
-set("n", "<c-h>", "<c-w><c-h>")
+set("n", "<c-j>", function() require('custom.tmux').navigate('j') end)
+set("n", "<c-k>", function() require('custom.tmux').navigate('k') end)
+set("n", "<c-l>", function() require('custom.tmux').navigate('l') end)
+set("n", "<c-h>", function() require('custom.tmux').navigate('h') end)
 
 set("n", "<cr>", function()
   if vim.opt.hlsearch:get() then
