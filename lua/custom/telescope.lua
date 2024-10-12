@@ -22,3 +22,14 @@ pcall(require('telescope').load_extension, "ui-select")
 local builtin = require 'telescope.builtin'
 
 set('n', "<leader>pf", builtin.find_files)
+set('n', "<leader>gs", builtin.live_grep)
+set('n', "<leader>gw", builtin.grep_string)
+set('n', "<leader>ff", builtin.current_buffer_fuzzy_find)
+
+set('n', "<leader>fa", function()
+  builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
+end)
+
+set('n', "<leader>nv", function()
+  builtin.find_files { cwd = vim.fn.stdpath "config" }
+end)
