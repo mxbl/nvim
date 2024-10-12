@@ -34,8 +34,12 @@ o.listchars = {
 o.scrolloff = 8
 o.breakindent = true
 o.wrap = true
+o.linebreak = true
 o.showbreak = "   │" --string.rep(" ", 3)
 o.linebreak = true
+
+o.tabstop = 4
+o.shiftwidth = 4
 
 o.swapfile = false
 o.backup = false
@@ -43,3 +47,5 @@ o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 o.undofile = true
 
 o.isfname:append("@-@")
+
+o.more = false
