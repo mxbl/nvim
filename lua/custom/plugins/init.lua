@@ -4,5 +4,7 @@ return {
     config = function()
       require'Comment'.setup {}
     end
-  }
+  },
+
+  'nfnty/vim-nftables',
 }
