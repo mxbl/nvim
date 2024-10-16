@@ -49,3 +49,6 @@ o.undofile = true
 o.isfname:append("@-@")
 
 o.more = false
+
+o.conceallevel = 2
+o.concealcursor = ""
