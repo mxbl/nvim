@@ -7,4 +7,6 @@ return {
   },
 
   'nfnty/vim-nftables',
+  'pearofducks/ansible-vim',
+  'tpope/vim-surround',
 }
