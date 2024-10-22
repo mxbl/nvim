@@ -52,6 +52,7 @@ return {
 			},
 			rust_analyzer = true,
 			pyright = true,
+			ansiblels = true,
 			-- jsonls
 			-- yamlls
 		}
@@ -69,6 +70,7 @@ return {
 		local ensure_installed = {
 			"stylua",
 			"lua_ls",
+			"ansiblels",
 			-- Debugger for the go programming language
 			-- "delve",
 		}

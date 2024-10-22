@@ -1,12 +1,12 @@
-return { 
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      require'Comment'.setup {}
-    end
-  },
+return {
+	-- {
+	-- 	"numToStr/Comment.nvim",
+	-- 	config = function()
+	-- 		require("Comment").setup({})
+	-- 	end,
+	-- },
 
-  'nfnty/vim-nftables',
-  'pearofducks/ansible-vim',
-  'tpope/vim-surround',
+	"nfnty/vim-nftables",
+	-- 'pearofducks/ansible-vim',
+	"tpope/vim-surround",
 }
