@@ -19,16 +19,16 @@ o.shada = { "'10", "<0", "s10", "h" }
 
 o.clipboard = "unnamedplus"
 
-o.formatoptions:remove "o"
+o.formatoptions:remove("o")
 
 o.ruler = false
 o.fillchars = { vert = "│", eob = "~" }
 o.list = true
 o.listchars = {
-  tab   = "» ",
-  eol   = "↲",
-  space  = "·",
-  trail = "~"
+	tab = "» ",
+	eol = "↲",
+	space = "·",
+	trail = "~",
 }
 
 o.scrolloff = 8
@@ -47,8 +47,6 @@ o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 o.undofile = true
 
 o.isfname:append("@-@")
-
-o.more = false
 
 o.conceallevel = 2
 o.concealcursor = ""
