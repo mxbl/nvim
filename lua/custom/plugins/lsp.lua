@@ -29,8 +29,7 @@ return {
 			gopls = {
 				settings = {
 					gopls = {
-						codelenses = { test = true },
-						hints = inlays and {
+						hints = {
 							assignVariableTypes = true,
 							compositeLiteralFields = true,
 							compositeLiteralTypes = true,
@@ -38,7 +37,7 @@ return {
 							functionTypeParameters = true,
 							parameterNames = true,
 							rangeVariableTypes = true,
-						} or nil,
+						},
 					},
 				},
 				flags = {
@@ -141,6 +140,7 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
+				go = { "goimports", "gofmt" },
 			},
 		})
 		conform.formatters.injected = {
@@ -154,7 +154,7 @@ return {
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function(args)
-				local extensions = vim.fn.expand("%:e")
+				local extension = vim.fn.expand("%:e")
 				if extension == "mlx" then
 					return
 				end
