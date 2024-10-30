@@ -23,3 +23,11 @@ set("n", "<cr>", function()
 end, { expr = true })
 
 set("n", "<leader><leader>x", "<cmd>source %<cr>", { desc = "Execute the current file" })
+
+-- navigating tabs
+-- TODO: make er to ui after removing those bindings from awesome
+set("n", "<M-n>", "<cmd>tabnew<cr>")
+set("n", "<M-u>", "gT")
+set("n", "<M-i>", "gt")
+
+set("n", ",,x", "<cmd>so %<cr>", { desc = "Execute the current file" })
