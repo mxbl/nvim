@@ -6,5 +6,7 @@ nnoremap > :vertical resize +5<cr>
 nnoremap < :vertical resize -5<cr>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 nnoremap <c-n> :cnext<cr>
 nnoremap <c-p> :cprev<cr>

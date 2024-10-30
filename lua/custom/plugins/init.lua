@@ -9,4 +9,5 @@ return {
 	"nfnty/vim-nftables",
 	-- 'pearofducks/ansible-vim',
 	"tpope/vim-surround",
+	"junegunn/vim-easy-align",
 }
