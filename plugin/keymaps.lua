@@ -30,4 +30,5 @@ set("n", "<M-n>", "<cmd>tabnew<cr>")
 set("n", "<M-u>", "gT")
 set("n", "<M-i>", "gt")
 
-set("n", ",,x", "<cmd>so %<cr>", { desc = "Execute the current file" })
+set("n", ",so", "<cmd>so %<cr>", { desc = "Execute the current file" })
+set("n", ",cd", "<cmd>cd %:h<cr>", { desc = "Change current directory to file path of current buffer" })
