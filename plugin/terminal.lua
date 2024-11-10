@@ -14,7 +14,10 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
 vim.keymap.set("t", "<M-u>", "<c-\\><c-n>gT")
 vim.keymap.set("t", "<M-i>", "<c-\\><c-n>gt")
-
+vim.keymap.set("t", "<c-h>", "<c-\\><c-n><c-w>h")
+vim.keymap.set("t", "<c-j>", "<c-\\><c-n><c-w>j")
+vim.keymap.set("t", "<c-k>", "<c-\\><c-n><c-w>k")
+vim.keymap.set("t", "<c-l>", "<c-\\><c-n><c-w>l")
 vim.cmd([[
 	autocmd TermOpen term://* startinsert
 	autocmd BufWinEnter,WinEnter term://* startinsert

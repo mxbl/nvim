@@ -1,4 +1,5 @@
 local set = vim.keymap.set
+local k = vim.keycode
 
 set("n", "<c-j>", function()
 	require("custom.tmux").navigate("j")
@@ -18,11 +19,11 @@ set("n", "<cr>", function()
 		vim.cmd.nohl()
 		return ""
 	else
-		return vim.keycode("<cr>")
+		return k("<cr>")
 	end
 end, { expr = true })
 
-set("n", "<leader><leader>x", "<cmd>source %<cr>", { desc = "Execute the current file" })
+-- set("n", "<leader><leader>x", "<cmd>source %<cr>", { desc = "Execute the current file" })
 
 -- navigating tabs
 -- TODO: make er to ui after removing those bindings from awesome
