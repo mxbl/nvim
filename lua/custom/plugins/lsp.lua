@@ -2,9 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"folke/neodev.nvim",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		-- "williamboman/mason.nvim",
+		-- "williamboman/mason-lspconfig.nvim",
+		-- "WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
 		{ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
 		"stevearc/conform.nvim",
@@ -51,31 +51,33 @@ return {
 			},
 			rust_analyzer = true,
 			pyright = true,
-			ansiblels = true,
+			-- nil_ls = true,
+			nixd = true,
+			-- ansiblels = true,
 			-- jsonls
 			-- yamlls
 		}
 
-		local servers_to_install = vim.tbl_filter(function(key)
-			local t = servers[key]
-			if type(t) == "table" then
-				return not t.manual_install
-			else
-				return t
-			end
-		end, vim.tbl_keys(servers))
+		-- local servers_to_install = vim.tbl_filter(function(key)
+		-- 	local t = servers[key]
+		-- 	if type(t) == "table" then
+		-- 		return not t.manual_install
+		-- 	else
+		-- 		return t
+		-- 	end
+		-- end, vim.tbl_keys(servers))
 
-		require("mason").setup()
-		local ensure_installed = {
-			"stylua",
-			"lua_ls",
-			"ansiblels",
-			-- Debugger for the go programming language
-			-- "delve",
-		}
+		-- require("mason").setup()
+		-- local ensure_installed = {
+		-- 	"stylua",
+		-- 	"lua_ls",
+		-- 	"ansiblels",
+		-- 	-- Debugger for the go programming language
+		-- 	-- "delve",
+		-- }
 
-		vim.list_extend(ensure_installed, servers_to_install)
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+		-- vim.list_extend(ensure_installed, servers_to_install)
+		-- require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		for name, config in pairs(servers) do
 			if config == true then
@@ -140,7 +142,9 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				go = { "goimports", "gofmt" },
+				go = { "goimports", "goimports-reviser", "gofumpt" },
+				nix = { "nixpkgs_fmt" },
+				terraform = { "terraform_fmt" },
 			},
 		})
 		conform.formatters.injected = {
