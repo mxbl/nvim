@@ -53,9 +53,10 @@ return {
 			pyright = true,
 			-- nil_ls = true,
 			nixd = true,
-			-- ansiblels = true,
+			ansiblels = true,
 			-- jsonls
-			-- yamlls
+			yamlls = true,
+			zls = true,
 		}
 
 		-- local servers_to_install = vim.tbl_filter(function(key)
