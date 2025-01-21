@@ -15,4 +15,21 @@ return {
 			require("custom.completion")
 		end,
 	},
+	{
+		"zbirenbaum/copilot.lua",
+		lazy = true,
+		config = function()
+			require("copilot").setup({
+				filetypes = {
+					yaml = true,
+				},
+			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
 }

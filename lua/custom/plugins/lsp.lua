@@ -55,8 +55,14 @@ return {
 			nixd = true,
 			ansiblels = true,
 			-- jsonls
-			yamlls = true,
-			zls = true,
+			-- yamlls = true,
+			zls = {
+				settings = {
+					zls = {
+						enable_build_on_save = false,
+					},
+				},
+			},
 		}
 
 		-- local servers_to_install = vim.tbl_filter(function(key)
