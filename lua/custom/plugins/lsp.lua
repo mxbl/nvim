@@ -22,6 +22,8 @@ return {
 			capabilities = require("cmp_nvim_lsp").default_capabilities()
 		end
 
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
 		local lspconfig = require("lspconfig")
 
 		local servers = {
@@ -120,6 +122,7 @@ return {
 				vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = 0 })
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
 				vim.keymap.set("n", "<leader>wd", builtin.lsp_document_symbols, { buffer = 0 })
+				vim.keymap.set("n", "do", vim.diagnostic.open_float, { buffer = 0 })
 
 				-- vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
 				-- vim.keymap.set("n", "<leader>d", vim.diagnostic.goto_next, opts)
@@ -181,6 +184,9 @@ return {
 		vim.diagnostic.config({
 			virtual_text = true,
 			virtual_lines = false,
+			float = {
+				border = "rounded",
+			},
 		})
 	end,
 }
