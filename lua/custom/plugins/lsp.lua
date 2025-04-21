@@ -153,7 +153,7 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				go = { "goimports", "goimports-reviser", "gofumpt" },
+				go = { "goimports", "goimports-reviser", "gofumpt", "golines" },
 				nix = { "nixpkgs_fmt" },
 				terraform = { "terraform_fmt" },
 			},
