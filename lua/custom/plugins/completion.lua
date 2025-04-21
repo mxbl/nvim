@@ -17,7 +17,7 @@ return {
 	},
 	{
 		"zbirenbaum/copilot.lua",
-		lazy = true,
+		-- lazy = true,
 		config = function()
 			require("copilot").setup({
 				filetypes = {
