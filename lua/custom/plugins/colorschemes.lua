@@ -27,9 +27,9 @@ return {
 			--
 			-- Group.new("CursorLine", nil, c.darkgray1)
 			-- Group.new("LirFloatBorder", c.darkgray0, nil)
-			Group.new("TelescopeNormal", c.superwhite, nil)
-			Group.new("TelescopeTitle", c.lightblue, nil)
-			Group.new("TelescopeBorder", c.darkgray2, nil)
+			-- Group.new("TelescopeNormal", c.superwhite, nil)
+			-- Group.new("TelescopeTitle", c.lightblue, nil)
+			-- Group.new("TelescopeBorder", c.darkgray2, nil)
 			--
 			Group.new("Whitespace", c.darkgray2, nil, nil)
 			Group.new("NonText", c.darkgray2, nil, nil)
