@@ -13,8 +13,6 @@ return {
 				keymaps = {
 					["<c-h>"] = false,
 					["<c-l>"] = false,
-					["<c-k>"] = false,
-					["<c-j>"] = false,
 					["q"] = "actions.close",
 					["@"] = "actions.cd",
 				},
@@ -24,6 +22,8 @@ return {
 				view_options = {
 					show_hidden = true,
 				},
+				use_default_keymaps = false,
+				skip_confirm_for_simple_edits = true,
 			})
 			vim.keymap.set("n", "<leader>pv", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 			-- vim.keymap.set("n", "<leader>pv", require("oil").toggle_float)
