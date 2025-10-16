@@ -2,9 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"folke/neodev.nvim",
-		-- "williamboman/mason.nvim",
-		-- "williamboman/mason-lspconfig.nvim",
-		-- "WhoIsSethDaniel/mason-tool-installer.nvim",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
 		{ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
 		"stevearc/conform.nvim",
@@ -50,43 +50,63 @@ return {
 				server_capabilities = {
 					semanticTokensProvider = vim.NIL,
 				},
-			},
-			rust_analyzer = true,
-			pyright = true,
-			-- nil_ls = true,
-			nixd = true,
-			ansiblels = true,
-			-- jsonls
-			-- yamlls = true,
-			zls = {
 				settings = {
-					zls = {
-						enable_build_on_save = false,
+					Lua = {
+						diagnostics = {
+							globals = { "vim", "awesome", "client" },
+						},
 					},
 				},
 			},
+			rust_analyzer = true,
+			pyright = true,
+			ansiblels = true,
+			terraformls = true,
+			-- ruby_lsp = true,
+			-- ruby_lsp = {
+			-- 	settings = {
+			-- 		ruby_lsp = {
+			-- 			init_options = {
+			-- 				formatter = "standard",
+			-- 				linters = { "standard" },
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
+			-- solargraph = true,
+			-- nil_ls = true,
+			-- nixd = true,
+			-- jsonls
+			-- yamlls = true,
+			-- zls = {
+			-- 	settings = {
+			-- 		zls = {
+			-- 			enable_build_on_save = false,
+			-- 		},
+			-- 	},
+			-- },
 		}
 
-		-- local servers_to_install = vim.tbl_filter(function(key)
-		-- 	local t = servers[key]
-		-- 	if type(t) == "table" then
-		-- 		return not t.manual_install
-		-- 	else
-		-- 		return t
-		-- 	end
-		-- end, vim.tbl_keys(servers))
+		local servers_to_install = vim.tbl_filter(function(key)
+			local t = servers[key]
+			if type(t) == "table" then
+				return not t.manual_install
+			else
+				return t
+			end
+		end, vim.tbl_keys(servers))
 
-		-- require("mason").setup()
-		-- local ensure_installed = {
-		-- 	"stylua",
-		-- 	"lua_ls",
-		-- 	"ansiblels",
-		-- 	-- Debugger for the go programming language
-		-- 	-- "delve",
-		-- }
+		require("mason").setup()
+		local ensure_installed = {
+			"stylua",
+			"lua_ls",
+			"ansiblels",
+			-- Debugger for the go programming language
+			-- "delve",
+		}
 
-		-- vim.list_extend(ensure_installed, servers_to_install)
-		-- require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+		vim.list_extend(ensure_installed, servers_to_install)
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		for name, config in pairs(servers) do
 			if config == true then
@@ -153,9 +173,10 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				go = { "goimports", "goimports-reviser", "gofumpt", "golines" },
+				go = { "goimports", "gofumpt", "golines" },
 				nix = { "nixpkgs_fmt" },
 				terraform = { "terraform_fmt" },
+				--ruby = { "rubocop" },
 			},
 		})
 		conform.formatters.injected = {

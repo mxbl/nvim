@@ -16,8 +16,8 @@ return {
 
 			local Color = require("colorbuddy").Color
 			local c = require("colorbuddy").colors
-			-- Color.new("darkgray0", "#101010")
-			-- Color.new("darkgray1", "#202020")
+			Color.new("darkgray0", "#101010")
+			Color.new("darkgray1", "#202020")
 			Color.new("darkgray2", "#3a3a3a")
 			Color.new("darkgray3", "#505050")
 			Color.new("lightblue", "#5eacd3")
@@ -25,7 +25,7 @@ return {
 			Group.new("SignColumn", nil, nil, nil)
 			Group.new("LineNr", c.darkgray3, nil, nil)
 			--
-			-- Group.new("CursorLine", nil, c.darkgray1)
+			Group.new("CursorLine", nil, c.darkgray1)
 			-- Group.new("LirFloatBorder", c.darkgray0, nil)
 			-- Group.new("TelescopeNormal", c.superwhite, nil)
 			-- Group.new("TelescopeTitle", c.lightblue, nil)
