@@ -61,7 +61,7 @@ return {
 			rust_analyzer = true,
 			pyright = true,
 			ansiblels = true,
-			terraformls = true,
+			-- terraformls = true,
 			-- ruby_lsp = true,
 			-- ruby_lsp = {
 			-- 	settings = {

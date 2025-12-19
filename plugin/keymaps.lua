@@ -28,6 +28,12 @@ set("n", "<cr>", function()
 	end
 end, { expr = true })
 
+-- NOTE: Requires those kitty mappings to work:
+-- map ctrl+enter send_text all \x1b[13;5u
+-- map shift+enter send_text all \x1b[13;2u
+set("i", "<C-CR>", "<C-o>o")
+set("i", "<S-CR>", "<C-o>O")
+
 set("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Execute the current file" })
 
 -- navigating tabs
@@ -46,3 +52,5 @@ end)
 set("n", ",v", function()
 	vim.cmd.wincmd("H")
 end)
+
+vim.keymap.set("n", "<leader>db", "<cmd>DBUI<cr>", { desc = "Open dadbod ui" })
