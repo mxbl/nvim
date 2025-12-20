@@ -11,20 +11,9 @@ return {
 				--ruby = { "rubocop" },
 			},
 		})
-		conform.formatters.injected = {
-			options = {
-				ignore_errors = false,
-				lang_to_formatters = {
-					sql = { "sleek" },
-				},
-			},
-		}
 		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = "*",
 			callback = function(args)
-				local extension = vim.fn.expand("%:e")
-				if extension == "mlx" then
-					return
-				end
 				require("conform").format({
 					bufnr = args.buf,
 					lsp_fallback = true,
@@ -32,5 +21,13 @@ return {
 				})
 			end,
 		})
-	end
+		-- conform.formatters.injected = {
+		-- 	options = {
+		-- 		ignore_errors = false,
+		-- 		lang_to_formatters = {
+		-- 			sql = { "sleek" },
+		-- 		},
+		-- 	},
+		-- }
+	end,
 }

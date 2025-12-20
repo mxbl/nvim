@@ -6,40 +6,21 @@ return {
 		"j-hui/fidget.nvim",
 	},
 	config = function()
-		local capabilities = nil
-		if pcall(require, "cmp_nvim_lsp") then
-			vim.tbl_deep_extend(
-				"force",
-				{},
-				vim.lsp.protocol.make_client_capabilities(),
-				require("cmp_nvim_lsp").default_capabilities()
-			)
-		end
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = { "lua_ls", "stylua", "gopls", "bashls", "ansiblels" },
-			handlers = {
-				function(srvname)
-					require("lspconfig")[srvname].setup({
-						capabilities = capabilities,
-					})
-				end,
-
-				["lua_ls"] = function()
-					require("lspconfig").lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = { "vim" },
-								},
-							},
-						},
-					})
-				end,
-			},
 		})
+
+		vim.lsp.config["lua_ls"] = {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
+			},
+		}
 
 		vim.diagnostic.config({
 			virtual_text = true,
