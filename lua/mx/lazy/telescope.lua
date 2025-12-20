@@ -9,7 +9,7 @@ return {
       'kkharji/sqlite.lua',
     },
     config = function()
-      require 'custom.telescope'
+      require 'mx.telescope'
     end,
   },
 }

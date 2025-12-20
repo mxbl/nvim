@@ -1,22 +1,26 @@
+vim.g.mapleader = " "
+
 local set = vim.keymap.set
 local k = vim.keycode
 
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 set("n", "<c-n>", "<cmd>cnext<cr>zz")
 set("n", "<c-p>", "<cmd>cprev<cr>zz")
 
 set("n", "<c-j>", function()
-	require("custom.tmux").navigate("j")
+	require("mx.tmux").navigate("j")
 end)
 set("n", "<c-k>", function()
-	require("custom.tmux").navigate("k")
+	require("mx.tmux").navigate("k")
 end)
 set("n", "<c-l>", function()
-	require("custom.tmux").navigate("l")
+	require("mx.tmux").navigate("l")
 end)
 set("n", "<c-h>", function()
-	require("custom.tmux").navigate("h")
+	require("mx.tmux").navigate("h")
 end)
 
 set("n", "<cr>", function()
@@ -34,7 +38,7 @@ end, { expr = true })
 set("i", "<C-CR>", "<C-o>o")
 set("i", "<S-CR>", "<C-o>O")
 
-set("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Execute the current file" })
+-- set("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Execute the current file" })
 
 -- navigating tabs
 -- TODO: make er to ui after removing those bindings from awesome
@@ -42,7 +46,9 @@ set("n", "<leader>tn", "<cmd>tabnew<cr>")
 set("n", "<leader>u", "gT")
 set("n", "<leader>i", "gt")
 
-set("n", ",x", "<cmd>so %<cr>", { desc = "Execute the current file" })
+set("n", "<leader><leader>", function()
+	vim.cmd("so")
+end, { desc = "Execute the current file" })
 set("n", ",cd", "<cmd>cd %:h<cr>", { desc = "Change current directory to file path of current buffer" })
 
 -- Swith between horizontal and vertical split
@@ -54,3 +60,16 @@ set("n", ",v", function()
 end)
 
 vim.keymap.set("n", "<leader>db", "<cmd>DBUI<cr>", { desc = "Open dadbod ui" })
+
+local mx_group = vim.api.nvim_create_augroup("mx", {})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = mx_group,
+	callback = function(e)
+		local opts = { buffer = e.buf }
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+		vim.keymap.set("n", "do", vim.diagnostic.open_float, opts)
+	end,
+})

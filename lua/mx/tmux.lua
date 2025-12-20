@@ -1,5 +1,5 @@
 local set = vim.keymap.set
-local utils = require("custom.utils")
+local utils = require("mx.utils")
 local job = require('plenary.job')
 local TMUX_EXE = 'tmux'
 local TMUX = os.getenv('TMUX')
