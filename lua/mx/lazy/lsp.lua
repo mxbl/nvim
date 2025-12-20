@@ -24,6 +24,7 @@ return {
 
 		vim.diagnostic.config({
 			virtual_text = true,
+			underline = false,
 			float = {
 				style = "minimal",
 				border = "rounded",
