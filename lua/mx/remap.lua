@@ -7,6 +7,7 @@ set("n", "<C-d>", "<C-d>zz")
 set("n", "<C-u>", "<C-u>zz")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
+
 set("n", "<c-n>", "<cmd>cnext<cr>zz")
 set("n", "<c-p>", "<cmd>cprev<cr>zz")
 
@@ -32,6 +33,8 @@ set("n", "<cr>", function()
 	end
 end, { expr = true })
 
+set("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
+
 -- NOTE: Requires those kitty mappings to work:
 -- map ctrl+enter send_text all \x1b[13;5u
 -- map shift+enter send_text all \x1b[13;2u
@@ -43,8 +46,8 @@ set("i", "<S-CR>", "<C-o>O")
 -- navigating tabs
 -- TODO: make er to ui after removing those bindings from awesome
 set("n", "<leader>tn", "<cmd>tabnew<cr>")
-set("n", "<leader>u", "gT")
-set("n", "<leader>i", "gt")
+set("n", "<left>", "gT")
+set("n", "<right>", "gt")
 
 set("n", "<leader><leader>", function()
 	vim.cmd("so")
@@ -66,8 +69,11 @@ local mx_group = vim.api.nvim_create_augroup("mx", {})
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = mx_group,
 	callback = function(e)
+		local builtin = require("telescope.builtin")
 		local opts = { buffer = e.buf }
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "<leader>ps", builtin.lsp_document_symbols, opts)
+		vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
+		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "do", vim.diagnostic.open_float, opts)
