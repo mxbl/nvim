@@ -40,6 +40,8 @@ set("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
 -- map shift+enter send_text all \x1b[13;2u
 set("i", "<C-CR>", "<C-o>o")
 set("i", "<S-CR>", "<C-o>O")
+set("i", "<C-f>", "<Right>")
+set("i", "<C-b>", "<Left>")
 
 -- set("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Execute the current file" })
 

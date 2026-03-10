@@ -26,6 +26,7 @@ return {
 				},
 				use_default_keymaps = false,
 				skip_confirm_for_simple_edits = true,
+				watch_for_changes = true,
 			})
 			vim.keymap.set("n", "<leader>pv", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 			-- vim.keymap.set("n", "<leader>pv", require("oil").toggle_float)
