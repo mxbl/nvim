@@ -9,7 +9,7 @@ return {
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "stylua", "gopls", "bashls", "ansiblels", "terraformls" },
+			ensure_installed = { "lua_ls", "stylua", "gopls", "bashls", "pyright", "ansiblels", "terraformls" },
 		})
 
 		vim.lsp.config["lua_ls"] = {
