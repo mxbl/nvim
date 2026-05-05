@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		lazy = false,
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 			configs.setup({
@@ -22,6 +23,7 @@ return {
 			})
 
 			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
 			-- NOTE: run `TSInstall mojo`
 			-- NOTE: the scm files need to be coppied by hand from this repo to this
 			--   configs queries path, indents.scm needed an change to work (inherit python)
@@ -33,6 +35,19 @@ return {
 				},
 				filetype = "mojo",
 			}
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "go", "yaml", "bash", "terraform", "python" },
+				callback = function()
+					vim.treesitter.start()
+				end,
+			})
+			-- 	local configs = require("nvim-treesitter.configs")
+			-- 	configs.setup({
+			-- 		ensure_installed = { "lua", "json", "vim", "vimdoc", "go", "yaml", "bash", "terraform" },
+			-- 		sync_install = false,
+			-- 		highlight = { enable = true },
+			-- 		indent = { enable = true },
+			-- 	})
 		end,
 	},
 }

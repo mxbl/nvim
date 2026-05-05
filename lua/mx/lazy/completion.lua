@@ -54,9 +54,12 @@ return {
 						{ "i", "c" }
 					),
 				},
-				formatting = {
-					format = lspkind.cmp_format(),
-				},
+				formatting = {},
+				-- formatting = {
+				-- 	format = lspkind.cmp_format({
+				-- 		mode = "symbol",
+				-- 	}),
+				-- },
 
 				snippet = {
 					expand = function(args)

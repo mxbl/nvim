@@ -7,6 +7,7 @@ return {
 				lua = { "stylua" },
 				go = { "goimports", "gofumpt", "golines" },
 				nim = { "nph" },
+				python = { "black" },
 				-- nix = { "nixpkgs_fmt" },
 				-- terraform = { "terraform_fmt" },
 				--ruby = { "rubocop" },
