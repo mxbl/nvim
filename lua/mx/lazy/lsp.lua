@@ -21,6 +21,44 @@ return {
 				},
 			},
 		}
+		vim.lsp.config["mojo"] = {
+			cmd = { "mojo-lsp-server" },
+			filetypes = { "mojo" },
+		}
+		vim.lsp.enable("mojo")
+
+		vim.lsp.config["nim_langserver"] = {
+			cmd = { vim.fn.expand("~/git/nimlangserver/nimlangserver") },
+			settings = {
+				nim = {
+					autoRestart = false,
+					-- checkOnSave = false,
+					-- formatOnSave = true,
+					-- useNimCheck = true,
+					-- notificationVerbosity = "error",
+					-- inlayHints = {
+					-- 	typeHints = true,
+					-- 	exceptionHints = true,
+					-- 	parameterHints = true,
+					-- },
+				},
+			},
+			handlers = {
+				["window/showMessage"] = function(_, res, ctx, cfg)
+					-- res.type: 1=Error, 2=Warning, 3=Info, 4=Log
+					-- Only pass the message to Neovim if it's a Warning or Error
+					if res.type <= 2 then
+						vim.lsp.handlers["window/showMessage"](_, res, ctx, cfg)
+					end
+				end,
+			},
+			-- on_attach = function(client, bufnr)
+			-- 	if client.server_capabilities.inlayHintProvider then
+			-- 		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+			-- 	end
+			-- end,
+		}
+		vim.lsp.enable("nim_langserver")
 
 		vim.diagnostic.config({
 			virtual_text = true,

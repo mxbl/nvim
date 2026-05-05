@@ -50,6 +50,8 @@ set("i", "<C-b>", "<Left>")
 set("n", "<leader>tn", "<cmd>tabnew<cr>")
 set("n", "<left>", "gT")
 set("n", "<right>", "gt")
+set("n", "gh", "gT")
+set("n", "gl", "gt")
 
 set("n", "<leader><leader>", function()
 	vim.cmd("so")
@@ -79,5 +81,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "do", vim.diagnostic.open_float, opts)
+		vim.keymap.set("n", "dO", "<cmd>Telescope diagnostics<cr>", opts)
+		vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
 	end,
 })

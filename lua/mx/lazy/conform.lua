@@ -6,6 +6,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "goimports", "gofumpt", "golines" },
+				nim = { "nph" },
 				-- nix = { "nixpkgs_fmt" },
 				-- terraform = { "terraform_fmt" },
 				--ruby = { "rubocop" },

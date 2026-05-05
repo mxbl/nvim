@@ -16,7 +16,8 @@ syn region tomlString oneline start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=miseBl
 syn region tomlString oneline start=/'/ end=/'/ contains=miseBlock
 
 syn keyword miseStatement containedin=miseBlock contained env vars exec
-syn keyword miseTaskProperty run description
+syn keyword miseTaskProperty run quiet description alias depends
+syn keyword miseKeywords true false
 
 syn region miseBlock matchgroup=miseDelim start=/{{-\?/ end=/-\?}}/
 
@@ -28,6 +29,7 @@ hi def link tomlString String
 hi def link miseBlock PreProc
 hi def link miseTodo Todo
 hi def link miseStatement Special
+hi def link miseKeywords Special
 hi def link tomlKey Identifier
 hi def link tomlKeyDq Identifier
 hi def link tomlTable Title
